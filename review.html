@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하트 애니메이션 예제 복습하기</title>
+    <style>
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: back 1.5s ease-in-out infinite alternate;
+        }
+        .heart {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: calc(50% - 25px);
+            left: calc(50% - 25px);
+            background-color: pink;
+            animation: beat 1.5s ease-in-out infinite;
+        }
+        .heart::before {
+            content: "";
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: -25px;
+            left: 0;
+            background-color: pink;
+            border-radius: 50%;
+                    }
+        .heart::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 0px;
+            left: 25px;
+            background-color: pink;
+            border-radius: 50%;
+                 }
+        @keyframes beat {
+            0%{ transform: rotate(-45deg) scale(1);
+                }
+            50%{ transform: rotate(-45deg) scale(0.5);
+                }
+            100%{ transform: rotate(-45deg) scale(1);
+                }
+        }
+        @keyframes back {
+            0% {background-color: rgb(178, 172, 221);}
+            50% {background-color: rgba(178, 172, 221, 0.8);}
+            100% {background-color:  rgb(178, 172, 221);}
+        }
+    </style>
+</head>
+<body>
+    <div class="back"></div>
+    <div class="heart"></div>
+</body>
+</html>
